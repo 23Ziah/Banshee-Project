@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class KillBlock : MonoBehaviour
@@ -16,6 +17,12 @@ public class KillBlock : MonoBehaviour
     // when the player hits the kill block the plyers psoition is changed to the  
     private void OnTriggerEnter(Collider other)
     {
-        Player.transform.position = spawnPoint.transform.position;
+        if (other.CompareTag("Killbox"))
+        {
+            Debug.Log("Killbox");
+            other.GetComponent<Respawn>().PlayerRespawn();
+
+            //Player.transform.position = spawnPoint.transform.position;
+        }
     }
 }
