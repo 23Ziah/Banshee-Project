@@ -17,12 +17,10 @@ public class KillBlock : MonoBehaviour
     // when the player hits the kill block the plyers psoition is changed to the  
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Killbox"))
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("Killbox");
+            Debug.Log("Player hit the killbox");
             other.GetComponent<Respawn>().PlayerRespawn();
-
-            //Player.transform.position = spawnPoint.transform.position;
         }
     }
 }
